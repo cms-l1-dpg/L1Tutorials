@@ -20,6 +20,9 @@ tm-editor input/L1Menu_Collisions2022_v0_1_1.xml
 ```
 
 ## Develop your seed
+
+> If you want to start from scratch at any point, close your TME, and reset your L1 Menu XML file with ```git checkout -- input/L1Menu_Collisions2022_v0_1_1.xml```
+
 1. **Find the seed** `L1_DoubleEG_15_10_er2p5`**. Which seed number does it have?**
     <details>
     <summary>Hint: How to find seeds? (Click to expand!)</summary>
@@ -163,6 +166,8 @@ Additionally, a new "Cut" with the name "EG-ETA_er1p2" must be contained in your
 ![Solution to Exercise 1 (new cut)](images/ex1_cuts.png)
 
 **Congratulations, you just completed Exercise 1!**
+
+Time to save (![Save](images/tme_save-button.png)) your L1 menu XML file!
 
 Next up: [Exercise 2](exercise-2.md)
 

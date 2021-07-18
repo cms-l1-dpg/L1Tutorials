@@ -62,12 +62,12 @@ The second seed is an alteration of a "DoubleMuon" seed and involves a couple of
 
 ### Exercise 1: `L1_DoubleEG_10_5_er1p2`
 
-[Click here for instructions.](exercise-1.md)
+[Click here for instructions.](./exercise-1.md)
 
 
 ### Exercise 2: `L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF`
 
-[Click here for instructions.](exercise-2.md)
+[Click here for instructions.](./exercise-2.md)
 
 
 ## Results
