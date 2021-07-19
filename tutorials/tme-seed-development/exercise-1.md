@@ -19,6 +19,9 @@ Now, open the latest Run-3 development menu with the TME:
 tm-editor input/L1Menu_Collisions2022_v0_1_1.xml
 ```
 
+The TME window should open and reveal the contents of the L1 menu XML file:
+![TME startup](images/tme_startup.png)
+
 ## Develop your seed
 
 > If you want to start from scratch at any point, close your TME, and reset your L1 Menu XML file with ```git checkout -- input/L1Menu_Collisions2022_v0_1_1.xml```
@@ -42,6 +45,12 @@ tm-editor input/L1Menu_Collisions2022_v0_1_1.xml
 
 1. **Make a copy of** `L1_DoubleEG_15_10_er2p5` **and place it at the nearest free seed index.**
     1. **What is the nearest free seed index?**
+        <details>
+        <summary>Hint: How to identify free seed indices?</summary>
+
+        You don't necessarily have to look for free seed indices by eye. The TME can help you identify the occupation status of indices. Try to look out for that TME feature. (See the next hint if you can't find it.)
+        </details>
+
         <details>
         <summary>Hint: How to make copies of seeds at free seed indices?</summary>
 
@@ -92,6 +101,14 @@ tm-editor input/L1Menu_Collisions2022_v0_1_1.xml
 
         * **Change the p<sub>T</sub> threshold of the first EG object from 15 GeV to 10 GeV.**
             <details>
+            <summary>Hint: What is the first EG object?</summary>
+
+            The first EG object appears as the string "EG15[EG-ETA_2p52]".
+            The object itself is represented by "EG15", while the string in the square brackets encodes the extra requirements applied to the EG object.
+            By convention, the numerical value attached to the object is the imposed minimum-p<sub>T</sub> requirement.
+            </details>
+
+            <details>
             <summary>Hint: Changing object properties</summary>
 
             The most transparent way to change object properties is to (1) put the cursor on the object by clicking somewhere within the "EG15" string
@@ -129,6 +146,26 @@ tm-editor input/L1Menu_Collisions2022_v0_1_1.xml
             ```
 
         * **Change the eta restriction settings for both EG objects.** You will need to add a new "Cut" named "er1p2" when editing the seed with the "Object Requirements Editor".
+            <details>
+            <summary>Hint: What is the eta restriction of this seed?</summary>
+
+            By convention, eta restriction of L1 seeds are denoted as "er", followed by a numerical value ("2p52" means "2.52"). These requirements restrict the pseudorapidity range a given object can fall into.
+
+            In our example seed, the eta restriction is "er2p52", corresponding to requirement |eta| < 2.52.
+            </details>
+
+            <details>
+            <summary>Hint: Steps required for changing a cut</summary>
+
+            In order to change a cut, it is generally not sufficient to simply modify its string expression. Instead, one needs to create a new "Cut", which is a separate "object" that encodes the cut properties (variable and thresholds) and which is identified via a unique name.
+            
+            Such a "Cut" appears in the list of cuts:
+
+            ![Cuts menu](images/tme_cuts-menu.png)
+
+            New cuts can be created either in the "Cuts" section of a given L1 menu XML or "on-the-fly" during seed development (see the next hint for more details).
+            </details>
+
             <details>
             <summary>Hint: Adding new cuts on the fly</summary>
 
