@@ -38,7 +38,7 @@ The TME window should open and reveal the contents of the L1 menu XML file:
     <details>
     <summary>Solution (click to expand)</summary>
 
-    The seed `L1_DoubleEG_15_10_er2p5` has the **number 205**.
+    The seed `L1_DoubleEG_15_10_er2p5` has the number 205.
 
     ![Original seed](images/ex1_original-seed.png)
     </details>
