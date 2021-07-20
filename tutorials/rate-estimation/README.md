@@ -164,7 +164,6 @@ The results have been produced with the command
 
 ## Results
 
-<<<<<<< HEAD
 The result tables can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results)
 
 testoutput.csv(txt): rate table as printed out on the terminal screen
@@ -188,6 +187,6 @@ The result tables cn be found [here](add link to the result repo with the txt, c
 
 Check the rate of the new seed
 
-Plot rate vs PU if there is time
->>>>>>> 90489ebfb2aae914f4b03399beb5f9900322ce06
+
+
 
