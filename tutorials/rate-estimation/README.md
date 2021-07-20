@@ -72,7 +72,6 @@ The L1_DoubleEG\_10\_5\_er1p2  was set to inde 204. Its line in the prescale tab
 
 The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52. Its line in the prescale table is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
 
-<<<<<<< HEAD
 
 ```
 # Log in to Lxplus with your username.
@@ -142,8 +141,6 @@ The L1_DoubleEG\_10\_5\_er1p2  was set to inde 204. Its line in the prescale tab
 The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52. Its line in the prescale table is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
 
 Note: In the previous step (geerating PS table for a new menu) by default all the prescale columns of a new seed will be set to 1. 
-=======
->>>>>>> 90489ebfb2aae914f4b03399beb5f9900322ce06
 
 ## Rate estimation
 
@@ -180,8 +177,8 @@ python CompPUDep.py --outfolder _RatesVSPU --csv ../results/testoutput_PU.csv
 
 ```
 
-before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1_DoubleEG\_10\_5\_er1p2" in line 83
-=======
+before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
+
 The result tables cn be found [here](add link to the result repo with the txt, csv and root files)
 
 
