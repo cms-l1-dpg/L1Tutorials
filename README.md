@@ -23,5 +23,5 @@ The [L1 seed development tutorial](tutorials/) explains the steps necessary to
 
 ## CMS trigger tutorials
 
-* [Level 1 Trigger Tutorial, Oct 2019](https://indico.cern.ch/event/1060362/) *(latest edition)*
+* [Level 1 Trigger Tutorial, Jul 2021](https://indico.cern.ch/event/1060362/) *(latest edition)*
 * [Level 1 Trigger and High Level Trigger tutorial, Oct 2019](https://indico.cern.ch/event/850482/)
