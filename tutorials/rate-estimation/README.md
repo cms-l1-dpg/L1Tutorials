@@ -7,9 +7,10 @@ This tutorial will show how to setup the L1 menu tool framework and compute the 
 
 
 ## Setup instructions
-Log in to Lxplus with your username.
+
 
 ```
+# Log in to Lxplus with your username.
 ssh -X <username>@lxplus.cern.ch
 
 # Setting up the environment and folder structure
@@ -40,6 +41,7 @@ In order to  make our own ntuple list from the latest Run3 Nutrino Gun L1 ntuple
 
 cd ntuple
 ./makeFileList.py /eos/cms/store/group/dpg_trigger/comm_trigger/L1Trigger/bundocka/condor/reHcalTP_Nu_11_2_105p20p1_1623921599 > Run3_NuGun_MC_ntuples_L1MenuTutorial.list
+cd ..
 
 ```
 
@@ -52,19 +54,21 @@ The prescale table for our modified menu can be found [here](https://github.com/
 let's get it locally
 
 ```
-
-wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuTools/master/rate-estimation/menu/Prescale_2022_v0_1_1.csv
+cd ./menu
+wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv
 
 ```
 
-For generating a new prescale table on needs to do the following:
+For generating a new prescale table one needs to do the following:
 
 ```
 
 cd L1MenuTools/pstools
-bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output /PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
+bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
 
 ```
+
+The first argument of the command should be an existing prescale table (xlsx format), in our case this can be the default Run 3 collisions menu (PrescaleTable-1\_L1Menu\_Collisions2018\_v2\_1\_0.xlsx) and the second argument should be the newlly deveoped menu in xml format.
 
 The newlly developed seed can be traced using their index:
 
@@ -72,6 +76,7 @@ The L1_DoubleEG\_10\_5\_er1p2  was set to inde 204. Its line in the prescale tab
 
 The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52. Its line in the prescale table is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
 
+Note: In the previous step (geerating PS table for a new menu) by default all the prescale columns of a new seed will be set to 1. 
 
 ## Rate estimation
 
@@ -92,10 +97,21 @@ The results have been produced with the command
 
 ## Results
 
-The result tables cn be found [here](add link to the result repo with the txt, csv and root files)
+The result tables can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results)
 
+testoutput.csv(txt): rate table as printed out on the terminal screen
+testoutput.root    : trigger rates vs pT and eta (are the seeds grouped somehow?)
 
-Check the rate of the new seed
+Lets check the rate of the new seeds in the .txt file
 
-Plot rate vs PU if there is time
+## Rates vs PU plots
+
+```
+
+cd plots
+python CompPUDep.py --outfolder _RatesVSPU --csv ../results/testoutput_PU.csv
+
+```
+
+before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1_DoubleEG\_10\_5\_er1p2" in line 83
 
