@@ -1,4 +1,4 @@
-# TME tutorial: Exercise 1 (`L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF`)
+# TME tutorial: Exercise 2 (`L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF`)
 
 The goal of this exercise is to extend the latest Run-3 development L1 menu XML file
 with the seed `L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF`, which is based on a similar seed that already exists in the L1 menu, using the Trigger Menu Editor (TME).
