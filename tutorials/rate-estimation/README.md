@@ -1,9 +1,9 @@
 # L1 menu rate estimation
 
-This tutorial will demonstrate how to set up the rate estimation tool and present examples on how to prepare the ntuple list and the PS tables with your new seed. We will go through an example command for rate estimation with a small number of events (20k) and at the end we will see examples of how to produce a rate VS PU and a rate bar plot. 
+This tutorial will demonstrate how to set up the rate estimation tool and will present examples on how to prepare the ntuple list and the PS tables with your new seed. We will go through an example command for rate estimation with a small number of events (20k) and at the end we will see examples of how to produce a rate VS PU and a rate bar and piechart plot. 
 
-The idea of this hands-on session is to walk you through all the necessary steps for estimating the rate of a new L1 menu that includes your new seeds and produce the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
-All the ingredients (ntuple list, PS tables), the L1 rate tables with the full Run3 NuGun statistics and the rate VS PU and rate bar plots will be provided by us such that everyone can reproduce the steps offline.
+The idea of this hands-on session is to walk you through all the necessary steps for estimating the rate of a L1 menu that includes your new seeds and produce the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
+All the ingredients (ntuple list, PS tables), the L1 rate tables with the full Run3 NuGun statistics and the rate VS PU and rate bar and piechart plots will be provided by us such that everyone can follow steps offline.
 
 ## Setup instructions
 Log in to Lxplus with your username.
@@ -23,11 +23,10 @@ cd L1MenuTools/rate-estimation/
 
 Get the xml menu file locally and translate it into c++ code
 ```
-Translating the menu XML file into C++ code
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuRun3/master/development/L1Menu_Collisions2022_v0_1_1/L1Menu_Collisions2022_v0_1_1.xml  # alternatively: place your custom menu XML here
 bash configure.sh configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
 ```
-Note: This brings and translates the baseline Run3 menu, without the newly developed seeds implmented. Later on we will need to produce get the modified menu and we will need to translate it to c++ code
+Note: This brings and translates the baseline Run3 menu, without the newly developed seeds implmented. For the purpose of this exercise we will get the modified menu and translate it to C++ code
 
 Compile
 ```
@@ -47,7 +46,7 @@ make -j 8
 ```
 
 
-** 1. Make ntuple list **
+1. ** Make ntuple list **
 
 The default L1 ntuple list for the Run3 NuGun sample can be found [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
 
@@ -60,7 +59,7 @@ cd ./ntuple
 
 This creates a list of the paths of all the L1 ntuples that will be used for the rate estimation
 
-** 2. Make prescale table **
+2. ** Make prescale table **
 
 The PS table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
 
@@ -92,7 +91,7 @@ Adding the --newSeedPS 2 in the command above
 Question: What PS should I use when I start my L1 seed rate studies? 
 <details>
 <summary>Answer (click to expand) </summary>
-For the beggining of your study we suggest that you start with PS = 1 for your new seed. In this way you can check the initial rate of your seed and then study how you can control it with PS.
+For the beggining of your study we suggest that you start with PS = 1 for your new seed. This way you can check the initial rate of your seed and then study how you can control it with PS.
 </details>
 
 
@@ -103,18 +102,18 @@ The ```L1_DoubleEG_10_5_er1p2```  [here](https://github.com/cms-l1-dpg/L1Tutoria
 The   ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
 
 
-** 3. Estimate the L1 rate **
+3. ** Estimate the L1 rate **
 
-Let's see how to run the rate tool for a small number of events (10k) and estimate the rate of our new menu
+Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 
 ```
 cd L1MenuTools/rate-estimation
-./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput -b 2544 --doPlotRate --doPlotEff --maxEvent 10000 --SelectCol 2E+34 --doPrintPU
+./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput -b 2544 --doPlotRate --doPlotEff --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 ```
 
 Question: How many events should I run for my studies?
-<details>
 
+<details>
 <summary> Answer (click to exand)<summary>
 As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
 <details>
