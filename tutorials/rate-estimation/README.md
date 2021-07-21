@@ -32,7 +32,7 @@ Every time the menu is modified the last 4 steps should be re-run.
 
 The default L1 ntuple [list](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) for the Run3 NuGun sample
 
-If one wants to produce their own ntuple list the steps are the following: 
+For producing your own ntuple list the steps are the following: 
 
 ```
 
@@ -74,7 +74,7 @@ The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52. Its l
 
 ## Estimate the L1 rate 
 
-We will demonstrate how to run the tool for a small amount of data (50k).
+We will demonstrate how to run the tool for a small number of events (50k).
 
 ```
 
@@ -86,7 +86,9 @@ cd L1MenuTools/rate-estimation
 
 ## Results
 
-The result tables for the run on the full statistics can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results)
+The result tables from the run on the full statistics can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results)
+
+The output files are:
 
 testoutput.csv(txt): rate table as printed out on the terminal screen, to be used for the rate visualization plot
 
