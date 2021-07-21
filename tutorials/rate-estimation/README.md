@@ -1,139 +1,174 @@
 # L1 menu rate estimation
 
-This tutorial will show how to setup the L1 menu tool framework, how to produce a PS table, how to run the tool for a small number of events and examples on how to produce the rate vs PU and rate visualization plots.
+This tutorial will demonstrate how to set up the rate estimation tool and present examples on how to prepare the ntuple list and the PS tables with your new seed. We will go through an example command for rate estimation with a small number of events (20k) and at the end we will see examples of how to produce a rate VS PU and a rate bar plot. 
 
+The idea of this hands-on session is to walk you through all the necessary steps for estimating the rate of a new L1 menu that includes your new seeds and produce the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
+All the ingredients (ntuple list, PS tables), the L1 rate tables with the full Run3 NuGun statistics and the rate VS PU and rate bar plots will be provided by us such that everyone can reproduce the steps offline.
 
 ## Setup instructions
 Log in to Lxplus with your username.
 
 ```
 ssh -X <username>@lxplus.cern.ch
+```
 
-# Setting up the environment and folder structure
+Clone the L1MenuTools repo
+
+```
 cmsrel CMSSW_11_1_5
 cd CMSSW_11_1_5/src/
 git clone --depth 1 https://github.com/cms-l1-dpg/L1MenuTools.git
 cd L1MenuTools/rate-estimation/
+```
 
-# Translating the menu XML file into C++ code
-wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml  # alternatively: place your custom menu XML here
-bash configure.sh L1Menu_Collisions2022_v0_1_1_modified.xml  # alternatively: provide your custom menu XML
+Get the xml menu file locally and translate it into c++ code
+```
+Translating the menu XML file into C++ code
+wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuRun3/master/development/L1Menu_Collisions2022_v0_1_1/L1Menu_Collisions2022_v0_1_1.xml  # alternatively: place your custom menu XML here
+bash configure.sh configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
+```
+Note: This brings and translates the baseline Run3 menu, without the newly developed seeds implmented. Later on we will need to produce get the modified menu and we will need to translate it to c++ code
 
-# Compile
+Compile
+```
 cmsenv
 mkdir -p objs/include
 make -j 8
- 
+```
+Every time the menu is modified the last 5 steps should be repeated.
+
+In order to get the modified menu that containes the new seed we need to do the following:
+```
+wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml
+bash configure.sh L1Menu_Collisions2022_v0_1_1_modified.xml
+cmsenv
+mkdir -p objs/include
+make -j 8
 ```
 
-Every time the menu is modified the last 4 steps should be re-run.
 
-## Make ntuple list
+** 1. Make ntuple list **
 
 The default L1 ntuple list for the Run3 NuGun sample can be found [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
 
 For producing your own ntuple list the steps are the following: 
 
 ```
-
 cd ./ntuple
 ./makeFileList.py path_to_ntuples > output_list_name.list
-
 ```
 
 This creates a list of the paths of all the L1 ntuples that will be used for the rate estimation
 
-## Make prescale table.
+** 2. Make prescale table **
 
 The PS table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
 
-let's get it locally
+you can either get it locally
 
 ```
 cd ./menu
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuTools/master/rate-estimation/menu/Prescale_2022_v0_1_1.csv
-
 ```
 
-For generating a new PS table the steps are the following:
+or generate is using ```ps-generate.py``` under ```/L1MenuTools/pstools```.
 
 ```
-
 cd L1MenuTools/pstools
 bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
+```                                                                                                                                                                                                                                                                                                                          
+The available options are shown in ![PS generation options](images/PSTableOption.png)
+
+* --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
+* --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
+
+Question: How can you set PS = 2 to all the new seeds? 
+<details>
+<summary>Answer (click to expand)</summary>
+Adding the --newSeedPS 2 in the command above
+</details>
+
+
+Question: What PS should I use when I start my L1 seed rate studies? 
+<details>
+<summary>Answer (click to expand) </summary>
+For the beggining of your study we suggest that you start with PS = 1 for your new seed. In this way you can check the initial rate of your seed and then study how you can control it with PS.
+</details>
+
+
+Let's ckeck the PS of the new seeds:
+
+The ```L1_DoubleEG_10_5_er1p2```  [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L160)
+
+The   ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
+
+
+** 3. Estimate the L1 rate **
+
+Let's see how to run the rate tool for a small number of events (10k) and estimate the rate of our new menu
 
 ```
-Note: by default the newly added seeds will have all their PS columns set to 1
-
-The newly developed seed can be traced using their index:
-
-The L1\_DoubleEG\_10\_5\_er1p2  was set to index 204 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L160)
-
-The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
-
-
-## Estimate the L1 rate 
-
-We will demonstrate how to run the tool for a small number of events (50k).
-
-```
-
 cd L1MenuTools/rate-estimation
-./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput -b 2544 --doPlotRate --doPlotEff --maxEvent 50000 --SelectCol 2E+34 --doPrintPU
-
+./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput -b 2544 --doPlotRate --doPlotEff --maxEvent 10000 --SelectCol 2E+34 --doPrintPU
 ```
 
+Question: How many events should I run for my studies?
+<details>
 
-## Results
+<summary> Answer (click to exand)<summary>
+As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
+<details>
 
-The result tables from the run on the full statistics can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results)
+What is the output of the rate estimation tool?
 
-The output files are:
+The result rate tables from full Run3 NuGun stats can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt)
 
-testoutput.csv(txt): rate table as printed out on the terminal screen, to be used for the rate visualization plot
+In the results file except from the .txt file there is also a .csc file and a root file. The root file contains the trigger rates vs pT and eta for the different L1 seed categories. 
+A [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_PU.csv) is produced when the --doPrintPU is used. This contains the seed names, PU bins, totl events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
-testoutput.root    : trigger rates vs pT and eta
+Question: What are the pure and proportional rates of the new seeds?
+<details> 
+<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is <summary>
+[here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400)<details>
+<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```  is <summary>
+[here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) 
+and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) <details>
 
-testoutput\_PU.csv : seed names, accepted events and PS, to be used in the rate vs PU plot
+Question: How much is each one of the new seeds adding to the total rate?
+<details>
+<summary> Answer (click to exand) <summary>
+The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0 therefore it does not add to the total rate. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
+<details>
 
-Let's check the rate of the new seeds [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.csv#L48) and [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.csv#L160) 
+Question: How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?
+<details>
+<summary> Answer (click to expand)<summary>
+Possible options for controlling very high rates of seeds are: 
+* Optimizing the cuts of the seeds
+* Increasing the PS
+<details>
 
-## Rates vs PU plots
+How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?
+<details> We made a new PS table, setting the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](link to results for PS=10)
+The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected) while the rate of ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```
+is unchanged.
+<details>
 
-The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
+** 4. Rates vs PU and rate visualization plots **
 
-For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
+* For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
+  ```
+  cd /L1MenuTools/rate-estimation/plots
+  python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
+  ```
+  before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
 
+  The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
 
-```
-
-cd /L1MenuTools/rate-estimation/plots
-python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
-
-```
-
-before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
-
-
-## Rate visualization
-
-The rate bar plot can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.pdf)
-
-
-In order to produce a rate bar plot for the different seed categories of the menu
-
-```
-
-cd src/L1MenuTools/rate-visualization
-bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
-
-```
-
-
-
-
-
-
-
-
+* For the rate visualization plots (piechart and bar plots)
+  ```
+  cd src/L1MenuTools/rate-visualization
+  bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
+  ```
+  The plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
 
