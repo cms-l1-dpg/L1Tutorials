@@ -45,7 +45,7 @@ mkdir -p objs/include
 make -j 8
 ```
 
-## Produce all the ingredients
+## Produce all the ingredients and estimate the L1 rates
 
 1. **Make ntuple list**
 
@@ -77,21 +77,21 @@ or generate is using ```ps-generate.py``` under ```/L1MenuTools/pstools```.
 cd L1MenuTools/pstools
 bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
 ```                                                                                                                                                                             
-The available options are shown in 
+The available options are
 
-[PS generation options](images/PSTableOption.png)
+![PS generation options](images/PSTableOption.png)
 
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
 * --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
 
-Question: How can you set PS = 2 to all the new seeds? 
+**Question**: How can you set PS = 2 to all the new seeds? 
 <details>
 <summary>Answer (click to expand)</summary>
 Adding the --newSeedPS 2 in the command above
 </details>
 
 
-Question: What PS should I use when I start my L1 seed rate studies? 
+**Question**: What PS should I use when I start my L1 seed rate studies? 
 <details>
 <summary>Answer (click to expand)</summary>
 For the beggining of your study we suggest that you start with PS = 1 for your new seed. This way you can check the initial rate of your seed and then study how you can control it with PS.
@@ -120,28 +120,27 @@ Question: How many events should I run for my studies?
 As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
 </details>
 
-What is the output of the rate estimation tool?
 
-The result rate tables from full Run3 NuGun stats can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt)
+The rate estimation toll will output the rate table in txt and csv format, a root file with the rates of the L1 seeds vs pT and eta. All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/)
+Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_PU.csv) is produced when the --doPrintPU is used. This contains the seed names, PU bins, totl events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
-In the results file except from the .txt file there is also a .csc file and a root file. The root file contains the trigger rates vs pT and eta for the different L1 seed categories. 
-A [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_PU.csv) is produced when the --doPrintPU is used. This contains the seed names, PU bins, totl events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
-
-Question: What are the pure and proportional rates of the new seeds?
+**Question**: What are the pure and proportional rates of the new seeds?
 <details> 
 <summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is </summary>
 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400)</details>
+
+<details>
 <summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```  is </summary>
 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) 
 and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
 
-Question: How much is each one of the new seeds adding to the total rate?
+**Question**: How much is each one of the new seeds adding to the total rate?
 <details>
 <summary> Answer (click to exand) </summary>
 The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0 therefore it does not add to the total rate. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
 </details>
 
-Question: How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?
+**Question**: How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?
 <details>
 <summary> Answer (click to expand)</summary>
 Possible options for controlling very high rates of seeds are: 
@@ -149,11 +148,13 @@ Possible options for controlling very high rates of seeds are:
 * Increasing the PS
 </details>
 
-How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?
-<details> We made a new PS table, setting the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](link to results for PS=10)
+**Question**: How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?
+<details> 
+<summary> Answer (click to expand)<\summary>
+We made a new PS table, setting the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](link to results for PS=10)
 The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected) while the rate of ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```
 is unchanged.
-<details>
+<\details>
 
 ** 4. Rates vs PU and rate visualization plots **
 
