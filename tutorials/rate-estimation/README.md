@@ -45,8 +45,9 @@ mkdir -p objs/include
 make -j 8
 ```
 
+## Produce all the ingredients
 
-1. ** Make ntuple list **
+1. **Make ntuple list**
 
 The default L1 ntuple list for the Run3 NuGun sample can be found [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
 
@@ -59,7 +60,7 @@ cd ./ntuple
 
 This creates a list of the paths of all the L1 ntuples that will be used for the rate estimation
 
-2. ** Make prescale table **
+2. **Make prescale table**
 
 The PS table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
 
@@ -75,8 +76,10 @@ or generate is using ```ps-generate.py``` under ```/L1MenuTools/pstools```.
 ```
 cd L1MenuTools/pstools
 bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
-```                                                                                                                                                                                                                                                                                                                          
-The available options are shown in ![PS generation options](images/PSTableOption.png)
+```                                                                                                                                                                             
+The available options are shown in 
+
+[PS generation options](images/PSTableOption.png)
 
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
 * --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
@@ -90,7 +93,7 @@ Adding the --newSeedPS 2 in the command above
 
 Question: What PS should I use when I start my L1 seed rate studies? 
 <details>
-<summary>Answer (click to expand) </summary>
+<summary>Answer (click to expand)</summary>
 For the beggining of your study we suggest that you start with PS = 1 for your new seed. This way you can check the initial rate of your seed and then study how you can control it with PS.
 </details>
 
@@ -102,7 +105,7 @@ The ```L1_DoubleEG_10_5_er1p2```  [here](https://github.com/cms-l1-dpg/L1Tutoria
 The   ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
 
 
-3. ** Estimate the L1 rate **
+3. **Estimate the L1 rate**
 
 Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 
@@ -112,11 +115,10 @@ cd L1MenuTools/rate-estimation
 ```
 
 Question: How many events should I run for my studies?
-
 <details>
-<summary> Answer (click to exand)<summary>
+<summary>Answer (click to exand)</summary>
 As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
-<details>
+</details>
 
 What is the output of the rate estimation tool?
 
@@ -127,25 +129,25 @@ A [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/
 
 Question: What are the pure and proportional rates of the new seeds?
 <details> 
-<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is <summary>
-[here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400)<details>
-<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```  is <summary>
+<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is </summary>
+[here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400)</details>
+<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```  is </summary>
 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) 
-and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) <details>
+and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
 
 Question: How much is each one of the new seeds adding to the total rate?
 <details>
-<summary> Answer (click to exand) <summary>
+<summary> Answer (click to exand) </summary>
 The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0 therefore it does not add to the total rate. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
-<details>
+</details>
 
 Question: How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?
 <details>
-<summary> Answer (click to expand)<summary>
+<summary> Answer (click to expand)</summary>
 Possible options for controlling very high rates of seeds are: 
 * Optimizing the cuts of the seeds
 * Increasing the PS
-<details>
+</details>
 
 How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?
 <details> We made a new PS table, setting the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](link to results for PS=10)
