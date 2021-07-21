@@ -30,7 +30,7 @@ Every time the menu is modified the last 4 steps should be re-run.
 
 ## Make ntuple list
 
-The default L1 ntuple [list](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) for the Run3 NuGun sample
+The default L1 ntuple list for the Run3 NuGun sample can be found [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
 
 For producing your own ntuple list the steps are the following: 
 
@@ -41,11 +41,11 @@ cd ./ntuple
 
 ```
 
-This will crate a list of the paths of all the L1 ntuples that will be used for the rate estimation
+This creates a list of the paths of all the L1 ntuples that will be used for the rate estimation
 
 ## Make prescale table.
 
-The prescale table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
+The PS table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
 
 let's get it locally
 
@@ -55,7 +55,7 @@ wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuTools/master/rate-estima
 
 ```
 
-For generating a new prescale table the steps are the following:
+For generating a new PS table the steps are the following:
 
 ```
 
@@ -65,11 +65,11 @@ bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/offi
 ```
 Note: by default the newly added seeds will have all their PS columns set to 1
 
-The newlly developed seed can be traced using their index:
+The newly developed seed can be traced using their index:
 
-The L1\_DoubleEG\_10\_5\_er1p2  was set to inde 204. Its line in the prescale table is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L160)
+The L1\_DoubleEG\_10\_5\_er1p2  was set to index 204 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L160)
 
-The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52. Its line in the prescale table is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
+The   L1\_DoubleMu\_15upt\_7upt\_MassUpt\_Min1\_BMTF  was set to index 52 [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
 
 
 ## Estimate the L1 rate 
