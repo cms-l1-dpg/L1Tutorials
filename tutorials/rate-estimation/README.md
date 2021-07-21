@@ -2,7 +2,7 @@
 
 This tutorial will show how to setup and cofigure the L1 menu tool framework, how to produce a PS tablesm how to run the tool for a small number of events and examples on how to produce the rate vs PU and rate visualization plots.
 
-We provide you with the [PS tables](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv), the [rate estimation output](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results) for the full statistics of the Run3 NuGun sample, the [rate vs PUp plots](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds) and the [rate bar plot](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.pdf).
+We provide you with the [PS tables](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv), the [rate estimation output](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results) for the full statistics of the Run3 NuGun sample, the [rate vs PU plots](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds) and the [rate bar plot](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.pdf).
 
 
 
@@ -53,7 +53,7 @@ The prescale table for our modified menu can be found [here](https://github.com/
 let's get it locally
 
 ```
-
+cd ./menu
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuTools/master/rate-estimation/menu/Prescale_2022_v0_1_1.csv
 
 ```
@@ -63,9 +63,10 @@ For generating a new prescale table on needs to do the following:
 ```
 
 cd L1MenuTools/pstools
-bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output /PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
+bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
 
 ```
+Note: by default the newly added seeds will have all their PS columns set to 1
 
 The newlly developed seed can be traced using their index:
 
@@ -80,7 +81,7 @@ We will demonstrate how to run the tool for a small amount of data (20k).
 
 ```
 
-L1MenuTools/rate-estimation
+cd L1MenuTools/rate-estimation
 ./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput -b 2544 --doPlotRate --doPlotEff --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 
 ```
@@ -91,10 +92,12 @@ L1MenuTools/rate-estimation
 The result tables for the run on the full statistics can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results)
 
 testoutput.csv(txt): rate table as printed out on the terminal screen, to be used for the rate visualization plot
+
 testoutput.root    : trigger rates vs pT and eta
+
 testoutput\_PU.csv : seed names, accepted events and PS, to be used in the rate vs PU plot
 
-Lets check the rate of the new seeds [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.csv)
+Lets check the rate of the new seeds [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.csv#L48) and [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.csv#L160) 
 
 ## Rates vs PU plots
 
@@ -111,7 +114,7 @@ python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
 before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
 The result of the above command can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
 
-## RAte visualization
+## Rate visualization
 
 In order to produce a rate bar plot for the different seed categories of the menu
 
