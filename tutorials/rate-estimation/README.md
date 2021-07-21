@@ -55,7 +55,7 @@ wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuTools/master/rate-estima
 
 ```
 
-For generating a new prescale table on needs to do the following:
+For generating a new prescale table the steps are the following:
 
 ```
 
@@ -102,7 +102,7 @@ Let's check the rate of the new seeds [here](https://github.com/cms-l1-dpg/L1Tut
 
 The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
 
-For the rate vs PU plot production the --doPrintPU should be passed asargyment in the previous step.
+For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
 
 
 ```
