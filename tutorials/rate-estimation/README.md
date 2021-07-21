@@ -140,9 +140,8 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 **How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
     <details> 
     <summary> Answer (click to expand) </summary>
-    We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](link to results for PS=10)
-    The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected) while the rate of ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```
-is unchanged.
+    We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_PS10.txt#L512)
+    The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
     </details>
 
 
