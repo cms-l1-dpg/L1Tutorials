@@ -122,7 +122,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 
 **What are the pure and proportional rates of the new seeds?** 
     <details> 
-    <summary> Anser (click to expand) <\summary>
+    <summary> Answer (click to expand) </summary>
      For the L1\_DoubleMu\_15upt\_7upt_MassUpt\_Min1\_BMTF is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) and for the L1\_DoubleEG\_10\_5\_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
 
 **How much is each one of the new seeds adding to the total rate?**
