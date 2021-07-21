@@ -126,44 +126,42 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 
 **Question**: What are the pure and proportional rates of the new seeds?
 <details> 
-<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is </summary>
-[here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400)</details>
-
-<details>
-<summary> ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```  is </summary>
-[here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) 
+<summary> Answere (click to expand)<\summary>
+The ``` L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF ``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400)
+and ``` L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF ``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) 
 and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
 
 **Question**: How much is each one of the new seeds adding to the total rate?
 <details>
 <summary> Answer (click to exand) </summary>
-The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0 therefore it does not add to the total rate. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
+The ``` L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF ``` has a pure rate = 0 therefore it does not add to the total rate. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
 </details>
 
 **Question**: How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?
 <details>
 <summary> Answer (click to expand)</summary>
 Possible options for controlling very high rates of seeds are: 
-* Optimizing the cuts of the seeds
-* Increasing the PS
+- Optimizing the cuts of the seeds
+- Increasing the PS
 </details>
 
 **Question**: How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?
 <details> 
-<summary> Answer (click to expand)<\summary>
+<summary> Answer (click to expand) <\summary>
 We made a new PS table, setting the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](link to results for PS=10)
 The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected) while the rate of ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF```
 is unchanged.
 <\details>
 
-** 4. Rates vs PU and rate visualization plots **
+4. ** Rates vs PU and rate visualization plots **
 
 * For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
+  before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
+
   ```
   cd /L1MenuTools/rate-estimation/plots
   python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
   ```
-  before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
 
   The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
 
