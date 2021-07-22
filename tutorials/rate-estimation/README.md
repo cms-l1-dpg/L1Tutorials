@@ -84,13 +84,20 @@ The available options are
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
 * --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
 
+    <details>
+    <summary>Hint: How to find seeds? (Click to expand!)</summary>
+
+    A seed can be found many ways. The easiest method is to search for it using
+    the "Filter" field above the seed list (in the top right area, above the seed list).
+    </details>
+
 
    **I. How can you set PS = 2 to all the new seeds?**
-       <details>
-       <summary>Answer: (Click to expand!)</summary>
+   <details>
+   <summary>Answer: (Click to expand!)</summary>
 
-       Adding the --newSeedPS 2 in the command above.
-       </details>
+   Adding the --newSeedPS 2 in the command above.
+   </details>
 
 
    **II. What PS should I use when I start my L1 seed rate studies?**
