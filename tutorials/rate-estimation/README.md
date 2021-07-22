@@ -125,8 +125,8 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 
 
 **IV. What are the pure and proportional rates of the new seeds?** 
-    <details> 
-    <summary> Answer (click to expand) </summary>
+    <details>
+    <summary>Answer (click to expand) </summary>
 
      For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) 
 
@@ -156,6 +156,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 **VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
     <details> 
     <summary> Answer (click to expand) </summary>
+
     We made a new PS table, set the PS=10 for the new seeds which can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified_PS10.csv) and run the rate estimation tool again for the rull Run3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10.txt#L512)
     The rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
 
@@ -167,7 +168,11 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 In order to get the result files of running on the full statistics of the Run3 NuGun sample you can follow the steps:
 ```
 cd results
-wget 
+wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.csv
+wget https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.root
+wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.txt
+wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats_PU.csv
+``` 
 
 
 ### 5. Rates vs PU and rate visualization plots
