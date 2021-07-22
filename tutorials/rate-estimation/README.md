@@ -117,12 +117,12 @@ The rate estimation tool will output the rate table in txt and csv format and a 
 All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
 Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv) is produced if the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
-    **III. How many events should I run for my studies?**
-    <details>
-    <summary>Answer: (click to exand)</summary>
+   **III. How many events should I run for my studies?**
+   <details>
+   <summary>Answer: (click to exand)</summary>
 
-     As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
-     </details>
+   As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
+   </details>
 
    **IV. What are the pure and proportional rates of the new seeds?** 
    <details>
