@@ -134,7 +134,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 
     and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512)
    
-    ![DoubleEG](images/DoubleEG_10_5_er1p2_PS1.png
+    ![DoubleEG](images/DoubleEG_10_5_er1p2_PS1.png)
     </details>
 
 
