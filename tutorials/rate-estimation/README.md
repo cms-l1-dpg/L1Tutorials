@@ -51,7 +51,7 @@ make -j 8
 
 ### 1. Make ntuple list
 
-The baseline L1 ntuple list of the Run3 NuGun ntuples is [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
+The baseline L1 ntuple list of the Run3 NuGun ntuples is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/Run3_NuGun_MC_ntuples.list) 
 
 For producing your own ntuple list the steps are the following: 
 ```
@@ -108,12 +108,13 @@ The PS of the new seeds are:
 Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 ```
 cd L1MenuTools/rate-estimation
-./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1 -b 2544 --doPlotRate --doPlotEff --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
+./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1 -b 2544 --doPlotRate --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 ```
-if you use data remember to add the LS table. Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
+If you are using data remember to add the LS table. Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
 
-The rate estimation tool will output the rate table in txt and csv format, a root file with the rates of the L1 seeds vs pT and eta. All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/)
-Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_PU.csv) is produced when the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
+The rate estimation tool will output the rate table in txt and csv format and a root file with the rates of the L1 seeds vs pT and eta. 
+All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
+Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv) is produced if the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
 
 **III. How many events should I run for my studies?**
@@ -126,7 +127,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 **IV. What are the pure and proportional rates of the new seeds?** 
     <details> 
     <summary> Answer (click to expand) </summary>
-     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
+     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512) </details>
 
 
 **V. How much is the effective contribution of every seed to the total rate?**
@@ -147,8 +148,8 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 **VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
     <details> 
     <summary> Answer (click to expand) FIXME </summary>
-    We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_PS10.txt#L512)
-    The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
+    We made a new PS table, set the PS =10 for the new seeds which can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified_PS10.csv) and run the rate estimation tool again for the rull Run3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10.txt#L512)
+    The rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
     </details>
 
 
@@ -161,9 +162,9 @@ before running the python command, open CompPUDep.py and add ```"L1_DoubleEG_10_
 cd /L1MenuTools/rate-estimation/plots
 python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_PU.csv
 ```
-The rate vs PU looks like ![this](RateVsPU_plots/Plots_RatesVSPU_NewSeeds/L1_DoubleEG_10_5_er1p2.png)
+The rate vs PU looks like ![this](Plots_RatesVSPU/L1_DoubleEG_10_5_er1p2.png)
 
-and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
+and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/Plots_RatesVSPU)
 
 For the rate visualization plots (bar and pie charts)
 ```
