@@ -128,11 +128,14 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
     <details> 
     <summary> Answer (click to expand) </summary>
 
-     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400)
- ![DoubleMu_15upt_7upt_MassUpt_Min1_BMTF](images/DoubleMu_15upt_7upt_MassUpt_Min1_BMTF_PS1.png )
- and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512) 
- ![DoubleEG_10_5_er1p2](images/DoubleEG_10_5_er1p2_PS1.png) 
-</details>
+     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) 
+
+    ![DoubleMu](images/DoubleMu_15upt_7upt_MassUpt_Min1_BMTF_PS1.png)
+
+    and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512)
+   
+    ![DoubleEG](images/DoubleEG_10_5_er1p2_PS1.png
+    </details>
 
 
 **V. How much is the effective contribution of every seed to the total rate?**
@@ -140,7 +143,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
     <summary> Answer (click to exand) </summary>
     The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. 
     The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
-</details>
+    </details>
 
 
 **VI. How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
@@ -173,7 +176,7 @@ and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndP
 
 For the rate visualization plots (bar and pie charts)
 ```
-cd src/L1MenuTools/rate-visualization
+cd /L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_20k.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
 ```
 The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
