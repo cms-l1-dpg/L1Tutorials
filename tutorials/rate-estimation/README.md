@@ -85,18 +85,14 @@ The available options are
 * --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
 
 **How can you set PS = 2 to all the new seeds?**
-
     <details>
     <summary>Answer (click to expand)</summary>
-
     Adding the --newSeedPS 2 in the command above
     </details>
 
 **What PS should I use when I start my L1 seed rate studies?**
-
     <details>
     <summary>Answer (click to expand)</summary>
-
     For the beggining of your study we suggest that you start with PS = 1 for your new seed. This way you can check the initial rate of your seed and then study how you can control it with PS.
     </details>
 
@@ -117,43 +113,31 @@ The rate estimation tool will output the rate table in txt and csv format, a roo
 Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_PU.csv) is produced when the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
 **How many events should I run for my studies?**
-
     <details>
     <summary>Answer (click to exand)</summary>
-
      As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
      </details>
 
 **What are the pure and proportional rates of the new seeds?** 
-
     <details> 
     <summary> Answer (click to expand) </summary>
-
      For the L1\_DoubleMu\_15upt\_7upt_MassUpt\_Min1\_BMTF is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) and for the L1\_DoubleEG\_10\_5\_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
 
 **How much is each one of the new seeds adding to the total rate?**
-
     <details>
     <summary> Answer (click to exand) </summary>
-
     The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
 </details>
 
 **How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
-
     <details>  
     <summary> Answer (click to expand)</summary>
-
-    Possible options for controlling very high rates of seeds are
-    * Optimizing the cuts of the seeds 
-    * Increasing the PS
+    Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
     </details>
 
 **How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
-
     <details> 
     <summary> Answer (click to expand) </summary>
-
     We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_PS10.txt#L512)
     The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
     </details>
