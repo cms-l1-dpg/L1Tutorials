@@ -9,7 +9,10 @@ Then, two exercises exemplify the addition of custom L1 seeds to an existing L1 
 The first exercise involves a rather simple modification of an existing seed.
 The second one requires the treatment of a seed that is a bit more complicated.
 
-**The following tutorial steps are to be followed in the given order.**
+Finally, a short third exercise demonstrates the steps necessary to finalize a
+L1 menu XML file and make it ready for handing it over to the relevant trigger experts.
+
+**Please follow the below tutorial steps in the given order.**
 
 
 ## Setup instructions
