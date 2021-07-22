@@ -207,7 +207,7 @@ cd /L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_20k.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
 
 ```
-or
+or for producing the plots with the full stats:
 ```
 cd /L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_FullStats.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
