@@ -20,13 +20,14 @@ git clone --depth 1 https://github.com/cms-l1-dpg/L1MenuTools.git
 cd L1MenuTools/rate-estimation/
 ```
 
-Get the xml menu file locally and translate it into C++ code
+Get the XML menu file locally and translate it into C++ code
 ```
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuRun3/master/development/L1Menu_Collisions2022_v0_1_1/L1Menu_Collisions2022_v0_1_1.xml  # alternatively: place your custom menu XML here
 bash configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
 ```
+This step produces a ```menulib.hh``` and a ```menulib.cc``` files
 
-Note: This brings and translates the baseline Run3 menu. For the purpose of this exercise we will get the modified menu and translate it to C++ code in a few steps
+Note: The command above brings and translates the baseline Run3 menu. For the purpose of this exercise we will get the modified menu and translate it to C++ code in a few steps
 
 Compile
 ```
@@ -35,7 +36,7 @@ mkdir -p objs/include
 make -j 8
 ```
 
-Every time the menu is modified the last 5 steps should be repeated.
+Every time the menu is modified the last 4 steps should be repeated.
 
 In order to get the modified menu that contains the new seed the steps are the following:
 ```
@@ -107,8 +108,9 @@ The PS of the new seeds are:
 Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 ```
 cd L1MenuTools/rate-estimation
-./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput -b 2544 --doPlotRate --doPlotEff --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
+./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1 -b 2544 --doPlotRate --doPlotEff --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 ```
+if you use data remember to add the LS table. Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
 
 The rate estimation tool will output the rate table in txt and csv format, a root file with the rates of the L1 seeds vs pT and eta. All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/)
 Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_PU.csv) is produced when the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
@@ -142,7 +144,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
     </details>
 
 
-**VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 5?**
+**VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
     <details> 
     <summary> Answer (click to expand) FIXME </summary>
     We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_PS10.txt#L512)
@@ -154,10 +156,10 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 
 
 For the rate vs PU plot production the ```--doPrintPU``` should be passed as argument in the previous step.
-before running the python command, open CompPUDep.py and add ```L1_DoubleEG_10_5_er1p2 : L1\_DoubleEG_10_5_er1p2``` in line 83
+before running the python command, open CompPUDep.py and add ```"L1_DoubleEG_10_5_er1p2" : "L1_DoubleEG_10_5_er1p2"``` in line 83
 ```
 cd /L1MenuTools/rate-estimation/plots
-python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
+python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_PU.csv
 ```
 The rate vs PU looks like ![this](RateVsPU_plots/Plots_RatesVSPU_NewSeeds/L1_DoubleEG_10_5_er1p2.png)
 
@@ -166,7 +168,7 @@ and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndP
 For the rate visualization plots (bar and pie charts)
 ```
 cd src/L1MenuTools/rate-visualization
-bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
+bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
 ```
 The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
