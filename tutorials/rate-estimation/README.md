@@ -138,33 +138,33 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
    </details>
 
 
-    **V. How much is the effective contribution of every seed to the total rate?**
-    <details>
-    <summary> Answer: (click to exand) </summary>
+   **V. How much is the effective contribution of every seed to the total rate?**
+   <details>
+   <summary> Answer: (click to exand) </summary>
 
-    * The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. 
-    * The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
-    </details>
-
-
-    **VI. How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
-    <details>  
-    <summary> Answer: (click to expand)</summary>
-
-    Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
-    </details>
+   * The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. 
+   * The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
+   </details>
 
 
-    **VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
-    <details> 
-    <summary> Answer: (click to expand) </summary>
+   **VI. How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
+   <details>  
+   <summary> Answer: (click to expand)</summary>
 
-    We made a new PS table, set the PS=10 for the new seeds which can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified_PS10.csv) and run the rate estimation tool again for the rull Run3 NuGun Stats.
-    The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10.txt#L512)
-    The rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
+   Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
+   </details>
 
-    ![DoubleEG_PS10](images/DoubleEG_10_5_er1p2_PS10.png)
-    </details>
+
+   **VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
+   <details> 
+   <summary> Answer: (click to expand) </summary>
+
+   We made a new PS table, set the PS=10 for the new seeds which can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified_PS10.csv) and run the rate estimation tool again for the rull Run3 NuGun Stats.
+   The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10.txt#L512)
+   The rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
+
+   ![DoubleEG_PS10](images/DoubleEG_10_5_er1p2_PS10.png)
+   </details>
 
 ### 4. Get the full stats result files (optional)
   
