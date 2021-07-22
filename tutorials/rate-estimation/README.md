@@ -127,7 +127,12 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 **IV. What are the pure and proportional rates of the new seeds?** 
     <details> 
     <summary> Answer (click to expand) </summary>
-     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512) </details>
+
+     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400)
+ ![DoubleMu_15upt_7upt_MassUpt_Min1_BMTF](images/DoubleMu_15upt_7upt_MassUpt_Min1_BMTF_PS1.png )
+ and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512) 
+ ![DoubleEG_10_5_er1p2](images/DoubleEG_10_5_er1p2_PS1.png) 
+</details>
 
 
 **V. How much is the effective contribution of every seed to the total rate?**
@@ -160,7 +165,7 @@ For the rate vs PU plot production the ```--doPrintPU``` should be passed as arg
 Before running the python command, open ```CompPUDep.py``` and add ```"L1_DoubleEG_10_5_er1p2" : "L1_DoubleEG_10_5_er1p2"``` in line 83
 ```
 cd /L1MenuTools/rate-estimation/plots
-python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_PU.csv
+python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_PU_20k.csv
 ```
 The rate vs PU looks like ![this](Plots_RatesVSPU/L1_DoubleEG_10_5_er1p2.png)
 
@@ -169,7 +174,7 @@ and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndP
 For the rate visualization plots (bar and pie charts)
 ```
 cd src/L1MenuTools/rate-visualization
-bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
+bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_20k.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
 ```
 The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
