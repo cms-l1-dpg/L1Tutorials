@@ -108,13 +108,13 @@ The PS of the new seeds are:
 Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 ```
 cd L1MenuTools/rate-estimation
-./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1 -b 2544 --doPlotRate --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
+./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1_20k -b 2544 --doPlotRate --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 ```
 If you are using data remember to add the LS table. Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
 
 The rate estimation tool will output the rate table in txt and csv format and a root file with the rates of the L1 seeds vs pT and eta. 
 All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
-Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv) is produced if the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
+Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv) is produced if the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
 
 **III. How many events should I run for my studies?**
@@ -157,7 +157,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 
 
 For the rate vs PU plot production the ```--doPrintPU``` should be passed as argument in the previous step.
-before running the python command, open CompPUDep.py and add ```"L1_DoubleEG_10_5_er1p2" : "L1_DoubleEG_10_5_er1p2"``` in line 83
+Before running the python command, open ```CompPUDep.py``` and add ```"L1_DoubleEG_10_5_er1p2" : "L1_DoubleEG_10_5_er1p2"``` in line 83
 ```
 cd /L1MenuTools/rate-estimation/plots
 python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_PU.csv
