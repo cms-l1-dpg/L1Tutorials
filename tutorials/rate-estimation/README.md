@@ -1,9 +1,9 @@
 # L1 menu rate estimation
 
-This tutorial will demonstrate how to set up the rate estimation tool and will present examples on how to prepare the ntuple list and the PS tables with your new seed. We will go through an example command for rate estimation with a small number of events (20k) and at the end we will see examples of how to produce a rate VS PU and a rate bar and piechart plot. 
+This tutorial will demonstrate how to set up the rate estimation tool and examples of how to prepare the L1 ntuple list and the PS tables with your new seed. We will go through an example command for estimating the L1 rate for a small number of events (20k) and at the end of the tutorial we will present examples of producing rate VS PU and a rate bar and pie charts. 
 
-The idea of this hands-on session is to walk you through all the necessary steps for estimating the rate of a L1 menu that includes your new seeds and produce the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
-All the ingredients (ntuple list, PS tables), the L1 rate tables with the full Run3 NuGun statistics and the rate VS PU and rate bar and piechart plots will be provided by us such that everyone can follow steps offline.
+The idea of this hands-on session is to walk the participants through all the necessary steps for estimating the L1 menu rates produce the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
+All the ingredients (ntuple list, PS tables) and the results (L1 rate tables with the full Run3 NuGun statistics and the rate VS PU and rate bar and pie charts) will be provided by us such that everyone can follow the steps offline.
 
 ## Setup instructions
 
@@ -20,13 +20,13 @@ git clone --depth 1 https://github.com/cms-l1-dpg/L1MenuTools.git
 cd L1MenuTools/rate-estimation/
 ```
 
-Get the xml menu file locally and translate it into c++ code
+Get the xml menu file locally and translate it into C++ code
 ```
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuRun3/master/development/L1Menu_Collisions2022_v0_1_1/L1Menu_Collisions2022_v0_1_1.xml  # alternatively: place your custom menu XML here
 bash configure.sh configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
 ```
 
-Note: This brings and translates the baseline Run3 menu, without the newly developed seeds implemented. For the purpose of this exercise we will get the modified menu and translate it to C++ code in a few steps
+Note: This brings and translates the baseline Run3 menu. For the purpose of this exercise we will get the modified menu and translate it to C++ code in a few steps
 
 Compile
 ```
@@ -50,7 +50,7 @@ make -j 8
 
 ### 1. Make ntuple list
 
-The default L1 ntuple list for the Run3 NuGun sample can be found [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
+The baseline L1 ntuple list of the Run3 NuGun ntuples is [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
 
 For producing your own ntuple list the steps are the following: 
 ```
@@ -58,7 +58,7 @@ cd ./ntuple
 ./makeFileList.py path_to_ntuples > output_list_name.list
 ```
 
-This creates a list of the paths of all the L1 ntuples that will be used for the rate estimation.
+This creates a list of the paths of all the L1 ntuples
 
 For example, if we want to recreate the Run3 NuGun ntuple list the steps are:
 ```
@@ -69,14 +69,14 @@ cd ./ntuple
 
 ### 2. Make prescale table
 
-The PS table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
+The PS table for our modified menu is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
 
 In order to create this new PS table that contains the PS columns for the new seeds from scratch, the steps to follow are: 
 ```
 cd L1MenuTools/pstools
 bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
 ```                                                                                                                                                                             
-Firstly, you have to provide an already existing PS table (in xlsx format) and then you have to provide the menu with your new seeds.
+Firstly, you have to provide an already existing PS table (in xlsx format) and then you have to provide the menu that contains your new seeds.
 
 The available options are
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
@@ -93,7 +93,7 @@ The available options are
 **II. What PS should I use when I start my L1 seed rate studies?**
     <details>
     <summary>Answer (click to expand)</summary>
-    For the beggining of your study we suggest that you start with PS = 1 for your new seed. This way you can check the initial rate of your seed and then study how you can control it with PS.
+    For the beggining of your study we suggest you set the PS of your new seed to 1. This way you can check the initial rate of your seed and then study how you can control it by increasing the PS.
     </details>
 
 The PS of the new seeds are:
@@ -123,13 +123,14 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 **IV. What are the pure and proportional rates of the new seeds?** 
     <details> 
     <summary> Answer (click to expand) </summary>
-     For the L1\_DoubleMu\_15upt\_7upt_MassUpt\_Min1\_BMTF is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) and for the L1\_DoubleEG\_10\_5\_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
+     For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L400) and for the ```L1_DoubleEG_10_5_er1p2``` [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput.txt#L512) </details>
 
 
-**V. How much is each one of the new seeds adding to the total rate?**
+**V. How much is the effective contribution of every seed to the total rate?**
     <details>
     <summary> Answer (click to exand) </summary>
-    The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
+    The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. 
+    The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
 </details>
 
 
@@ -140,9 +141,9 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
     </details>
 
 
-**VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
+**VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 5?**
     <details> 
-    <summary> Answer (click to expand) </summary>
+    <summary> Answer (click to expand) FIXME </summary>
     We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_PS10.txt#L512)
     The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
     </details>
