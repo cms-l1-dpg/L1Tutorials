@@ -143,6 +143,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 **VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
     <details> 
     <summary> Answer (click to expand) </summary>
+
     We made a new PS table, set the PS =10 for the new seeds and run the rate estimation tool again for the rull Rin3 NuGun Stats. The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_PS10.txt#L512)
     The pure rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
     </details>
@@ -151,21 +152,20 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 ### 4. Rates vs PU and rate visualization plots
 
 
-* For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
-  before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
-  ```
-  cd /L1MenuTools/rate-estimation/plots
-  python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
-  ```
+For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
+before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
+```
+cd /L1MenuTools/rate-estimation/plots
+python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
+```
 
-  The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
+The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
 
+For the rate visualization plots (piechart and bar plots)
+```
+cd src/L1MenuTools/rate-visualization
+bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
+```
 
-* For the rate visualization plots (piechart and bar plots)
-  ```
-  cd src/L1MenuTools/rate-visualization
-  bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
-  ```
-
-  The plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
+The plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
 
