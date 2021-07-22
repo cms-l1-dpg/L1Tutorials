@@ -137,7 +137,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 **VI. How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
     <details>  
     <summary> Answer (click to expand)</summary>
-    Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
+     Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
     </details>
 
 
@@ -152,20 +152,22 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
 ### 4. Rates vs PU and rate visualization plots
 
 
-For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
-before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
+For the rate vs PU plot production the ```--doPrintPU``` should be passed as argument in the previous step.
+before running the python command, open CompPUDep.py and add ```L1_DoubleEG_10_5_er1p2 : L1\_DoubleEG_10_5_er1p2``` in line 83
 ```
 cd /L1MenuTools/rate-estimation/plots
 python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_PU.csv
 ```
+The rate vs PU looks like ![this](RateVsPU_plots/Plots_RatesVSPU_NewSeeds/L1_DoubleEG_10_5_er1p2.png)
 
-The rate vs PU plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
+and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/RateVsPU_plots/Plots_RatesVSPU_NewSeeds)
 
-For the rate visualization plots (piechart and bar plots)
+For the rate visualization plots (bar and pie charts)
 ```
 cd src/L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
 ```
+The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
-The plots can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
+and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
 
