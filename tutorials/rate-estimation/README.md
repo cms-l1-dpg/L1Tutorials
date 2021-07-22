@@ -84,6 +84,12 @@ The available options are
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
 * --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
 
+    <details>
+    <summary>Hint: How to find seeds? (Click to expand!)</summary>
+
+     blabla
+    </details>
+
 
 **I. How can you set PS = 2 to all the new seeds?**
     <details>
