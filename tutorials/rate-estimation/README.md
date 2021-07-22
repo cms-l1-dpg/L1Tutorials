@@ -94,7 +94,7 @@ The available options are
 
    **II. What PS should I use when I start my L1 seed rate studies?**
    <details>
-   <summary>Answer: (click to expand)</summary>
+   <summary>Answer: (Click to expand!)</summary>
 
    For the beggining of your study we suggest you set the PS of your new seed to 1. This way you can check the initial rate of your seed and then study how you can control it by increasing the PS.
    </details>
@@ -129,7 +129,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 
    **IV. What are the pure and proportional rates of the new seeds?** 
    <details>
-   <summary>Answer: (click to expand) </summary>
+   <summary>Answer: (Click to expand!) </summary>
 
    For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) 
 
@@ -160,7 +160,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 
    **VII. How does the rate change if the PS for ```L1_DoubleEG_10_5_er1p2``` is set to 10?**
    <details> 
-   <summary> Answer: (click to expand) </summary>
+   <summary> Answer: (Click to expand!) </summary>
 
    We made a new PS table, set the PS=10 for the new seeds which can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified_PS10.csv) and run the rate estimation tool again for the rull Run3 NuGun Stats.
    The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10.txt#L512)
