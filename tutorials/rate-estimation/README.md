@@ -47,7 +47,7 @@ make -j 8
 
 ## Produce all the ingredients and estimate the L1 rates
 
-1. ### Make ntuple list
+### 1. Make ntuple list
 
 The default L1 ntuple list for the Run3 NuGun sample can be found [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/ntuple/Run3_NuGun_MC_ntuples.list) 
 
@@ -60,7 +60,7 @@ cd ./ntuple
 
 This creates a list of the paths of all the L1 ntuples that will be used for the rate estimation
 
-2. ### Make prescale table
+### 2. Make prescale table
 
 The PS table for our modified menu can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv)
 
@@ -107,7 +107,7 @@ The PS of the new seeds are:
 
 
 
-3. ### Estimate the L1 rate
+### 3. Estimate the L1 rate
 
 Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 
@@ -157,7 +157,7 @@ Additionally a [testoutput\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg
     </details>
 
 
-4. ### Rates vs PU and rate visualization plots
+### 4. Rates vs PU and rate visualization plots
 
 * For the rate vs PU plot production the --doPrintPU should be passed as argument in the previous step.
   before running the python command, open CompPUDep.py and add "L1\_DoubleEG\_10\_5\_er1p2" : "L1\_DoubleEG\_10\_5\_er1p2" in line 83
