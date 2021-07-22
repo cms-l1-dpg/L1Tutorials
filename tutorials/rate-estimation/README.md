@@ -88,6 +88,7 @@ The available options are
 **I. How can you set PS = 2 to all the new seeds?**
     <details>
     <summary>Answer (click to expand)</summary>
+
     Adding the --newSeedPS 2 in the command above
     </details>
 
@@ -95,6 +96,7 @@ The available options are
 **II. What PS should I use when I start my L1 seed rate studies?**
     <details>
     <summary>Answer (click to expand)</summary>
+
     For the beggining of your study we suggest you set the PS of your new seed to 1. This way you can check the initial rate of your seed and then study how you can control it by increasing the PS.
     </details>
 
@@ -120,9 +122,9 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 **III. How many events should I run for my studies?**
     <details>
     <summary>Answer (click to exand)</summary>
+
      As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
      </details>
-
 
 **IV. What are the pure and proportional rates of the new seeds?** 
     <details>
@@ -130,17 +132,18 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 
      For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) 
 
-    ![DoubleMu](images/DoubleMu_15upt_7upt_MassUpt_Min1_BMTF_PS1.png)
+    ![DoubleMu](./images/DoubleMu_15upt_7upt_MassUpt_Min1_BMTF_PS1.png)
 
     and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512)
    
-    ![DoubleEG](images/DoubleEG_10_5_er1p2_PS1.png)
+    ![DoubleEG](./images/DoubleEG_10_5_er1p2_PS1.png)
     </details>
 
 
 **V. How much is the effective contribution of every seed to the total rate?**
     <details>
     <summary> Answer (click to exand) </summary>
+
     The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. 
     The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
     </details>
@@ -149,6 +152,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
 **VI. How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
     <details>  
     <summary> Answer (click to expand)</summary>
+
      Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
     </details>
 
