@@ -114,7 +114,8 @@ Let's see how to run the rate tool for a small number of events (20k) and estima
 cd L1MenuTools/rate-estimation
 ./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1_20k -b 2544 --doPlotRate --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 ```
-If you are using data remember to add the LS table. Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
+If you are using data remember to add the LS table. The baseline LS table is [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/menu/run_lumi.csv).
+Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
 
 The rate estimation tool will output the rate table in txt and csv format and a root file with the rates of the L1 seeds vs pT and eta. 
 All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
