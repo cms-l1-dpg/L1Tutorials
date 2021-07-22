@@ -74,7 +74,7 @@ The PS table for our modified menu is [here](https://github.com/cms-l1-dpg/L1Tut
 
 In order to create this new PS table that contains the PS columns for the new seeds from scratch, the steps to follow are: 
 ```
-cd L1MenuTools/pstools
+cd /L1MenuTools/pstools
 bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
 mv PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv ../rate-estimation/menu/
 ```                                                                                                                                                                             
@@ -111,7 +111,7 @@ The PS of the new seeds are:
 
 Let's see how to run the rate tool for a small number of events (20k) and estimate the rate of our new menu
 ```
-cd L1MenuTools/rate-estimation
+cd /L1MenuTools/rate-estimation
 ./testMenu2016 -m menu/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv -l ntuple/Run3_NuGun_MC_ntuples.list -o testoutput_modified_PS1_20k -b 2544 --doPlotRate --maxEvent 20000 --SelectCol 2E+34 --doPrintPU
 ```
 If you are using data remember to add the LS table. The baseline LS table is [here](https://github.com/cms-l1-dpg/L1MenuTools/blob/master/rate-estimation/menu/run_lumi.csv).
@@ -174,7 +174,7 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
   
 In order to get the result files of running on the full statistics of the Run3 NuGun sample you can follow the steps:
 ```
-cd results
+cd /L1MenuTools/rate-estimation/results
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.csv
 wget https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.root
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.txt
@@ -191,7 +191,13 @@ Before running the python command, open ```CompPUDep.py``` and add ```"L1_Double
 cd /L1MenuTools/rate-estimation/plots
 python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_20k_PU.csv
 ```
-The rate vs PU looks like ![this](Plots_RatesVSPU/L1_DoubleEG_10_5_er1p2.png)
+or for producing the plots with the full stats:
+```
+cd /L1MenuTools/rate-estimation/plots
+python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_FullStats_PU.csv
+```
+
+The rate vs PU plot with the full stats looks like ![this](Plots_RatesVSPU/L1_DoubleEG_10_5_er1p2.png)
 
 and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/Plots_RatesVSPU)
 
@@ -199,8 +205,16 @@ For the rate visualization plots (bar and pie charts)
 ```
 cd /L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_20k.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
+
 ```
-The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
+or
+```
+cd /L1MenuTools/rate-visualization
+bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_FullStats.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
+
+```
+
+The rate bar chart with the full stats looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
 
 The pie chart looks like ![this](Rate_Visual/rate_visual_pieChart.png)
