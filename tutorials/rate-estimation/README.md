@@ -101,7 +101,10 @@ The available options are
 
 The PS of the new seeds are:
 * ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L160)
+    ![DoubleEG](./images/PS_DoubleEG.png)
+
 * ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/master/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv#L48)
+    ![DoubleMu](./images/PS_DoubleMu.png)
 
 
 ### 3. Estimate the L1 rate
