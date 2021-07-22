@@ -169,5 +169,7 @@ bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --ou
 ```
 The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
-and can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
+The pie chart looks like ![this](Rate_Visual/rate_visual_pieChart.png)
+
+and both of them can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
 
