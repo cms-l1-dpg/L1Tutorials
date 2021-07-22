@@ -165,7 +165,7 @@ For the rate vs PU plot production the ```--doPrintPU``` should be passed as arg
 Before running the python command, open ```CompPUDep.py``` and add ```"L1_DoubleEG_10_5_er1p2" : "L1_DoubleEG_10_5_er1p2"``` in line 83
 ```
 cd /L1MenuTools/rate-estimation/plots
-python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_PU_20k.csv
+python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_20k_PU.csv
 ```
 The rate vs PU looks like ![this](Plots_RatesVSPU/L1_DoubleEG_10_5_er1p2.png)
 
