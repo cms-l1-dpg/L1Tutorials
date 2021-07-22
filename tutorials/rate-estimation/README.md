@@ -23,7 +23,7 @@ cd L1MenuTools/rate-estimation/
 Get the xml menu file locally and translate it into C++ code
 ```
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuRun3/master/development/L1Menu_Collisions2022_v0_1_1/L1Menu_Collisions2022_v0_1_1.xml  # alternatively: place your custom menu XML here
-bash configure.sh configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
+bash configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
 ```
 
 Note: This brings and translates the baseline Run3 menu. For the purpose of this exercise we will get the modified menu and translate it to C++ code in a few steps
@@ -75,6 +75,7 @@ In order to create this new PS table that contains the PS columns for the new se
 ```
 cd L1MenuTools/pstools
 bash run-ps-generate.sh https://github.com/cms-l1-dpg/L1Menu2018/raw/master/official/PrescaleTables/PrescaleTable-1_L1Menu_Collisions2018_v2_1_0.xlsx https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/master/tutorials/rate-estimation/input/L1Menu_Collisions2022_v0_1_1_modified.xml --output PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified
+mv PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified.csv ../rate-estimation/menu/
 ```                                                                                                                                                                             
 Firstly, you have to provide an already existing PS table (in xlsx format) and then you have to provide the menu that contains your new seeds.
 
@@ -169,7 +170,9 @@ bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput.csv --ou
 ```
 The rate bar chart looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
+
 The pie chart looks like ![this](Rate_Visual/rate_visual_pieChart.png)
+
 
 and both of them can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
 
