@@ -97,7 +97,7 @@ The available options are
    **I. How can you set PS = 2 to all the new seeds?**
    <details>
    <summary>Answer: (Click to expand!)</summary>
-,
+
    Adding the --newSeedPS 2 in the command above.
    </details>
 
