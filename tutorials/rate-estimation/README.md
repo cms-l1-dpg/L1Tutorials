@@ -128,15 +128,17 @@ Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent
    As many as possible! Here we demostrate only a small number of events due to time constraints. The rate tables in the results directory have been produced with the full stats of the Run3 NuGun MC sample.
    </details>
 
+Now let's have a look at the results when running on the full stats Run3 NuGun samples
+
    **IV. What are the pure and proportional rates of the new seeds?** 
    <details>
    <summary>Answer: (Click to expand!) </summary>
 
-   For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L400) 
+   For the ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.txt#L400) 
 
    ![DoubleMu](./images/DoubleMu_15upt_7upt_MassUpt_Min1_BMTF_PS1.png)
 
-   and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1.txt#L512)
+   and for the ```L1_DoubleEG_10_5_er1p2``` is [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats.txt#L512)
    
    ![DoubleEG](./images/DoubleEG_10_5_er1p2_PS1.png)
    </details>
