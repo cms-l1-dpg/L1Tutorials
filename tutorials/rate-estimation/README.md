@@ -29,7 +29,7 @@ bash configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide you
    <details>
    <summary>In case the last step fails (Click to expand!)</summary>
   
-   It has been reported that in case of not starting from a clean working environment, conflicts can arise. This can be solve by commenting out the PYTHONPATH   line that points to an older version of python in the ./bash_profile or ./bashrc file. An example is given bellow 
+   It has been reported that in case of not starting from a clean working environment, conflicts can arise. This can be solve by commenting out the PYTHONPATH line in the ./bash_profile or ./bashrc file. An example is given bellow 
   ![PYTHONPATH](images/fixConfigError.png)
   </details>
 
@@ -44,6 +44,7 @@ cmsenv
 mkdir -p objs/include
 make -j 8
 ```
+
 
 Every time the menu is modified the last 4 steps should be repeated.
 
@@ -127,8 +128,9 @@ If you are using data remember to add the LS table. The baseline LS table is [he
 Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/HowToL1TriggerMenu#3_Run_3_setting).
 
 The rate estimation tool will output the rate table in txt and csv format and a root file with the rates of the L1 seeds vs pT and eta. 
-All these files can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
-Additionally a [testoutput\_modified\_PS1\_PU.csv](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv) is produced if the ```--doPrintPU``` is used. This contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
+The output files of the full stat run can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
+
+The ```--doPrintPU``` produces an additional file [```testoutput_modified_PS1_PU.csv```](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv), that contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
    **III. How many events should I run for my studies?**
    <details>
@@ -204,7 +206,7 @@ Before running the python command, open ```CompPUDep.py``` and add ```"L1_Double
 cd /L1MenuTools/rate-estimation/plots
 python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_20k_PU.csv
 ```
-or for producing the plots with the full stats:
+or for producing the plots with the full stats, after you go through step 4 "Get the full stats result files" :
 ```
 cd /L1MenuTools/rate-estimation/plots
 python CompPUDep.py --outfolder RatesVSPU --csv ../results/testoutput_modified_PS1_FullStats_PU.csv
@@ -220,7 +222,7 @@ cd /L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_20k.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
 
 ```
-or for producing the plots with the full stats:
+or for producing the plots with the full stats, after you go through step 4 "Get the full stats result files":
 ```
 cd /L1MenuTools/rate-visualization
 bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified_PS1_FullStats.csv --output rate_visual --textOnBarPlot percentage+rates+totalrate
