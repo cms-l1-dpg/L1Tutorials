@@ -2,7 +2,7 @@
 
 This tutorial will demonstrate how to set up the rate estimation tool and examples of how to prepare the L1 ntuple list and the PS tables with your new seed. We will go through an example command for estimating the L1 rate for a small number of events (20k) and at the end of the tutorial we will present examples of producing rate VS PU and a rate bar and pie charts. 
 
-The idea of this hands-on session is to walk the participants through all the necessary steps for estimating the L1 menu rates produce the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
+The idea of this hands-on session is to walk the participants through all the necessary steps for estimating the L1 menu rates and producing the rate plots. The participants are encouraged to follow the live demonstration instead of trying to execute the steps by themself on real time.  
 All the ingredients (ntuple list, PS tables) and the results (L1 rate tables with the full Run3 NuGun statistics and the rate VS PU and rate bar and pie charts) will be provided by us such that everyone can follow the steps offline.
 
 ## Setup instructions
@@ -92,7 +92,7 @@ Firstly, you have to provide an already existing PS table (in xlsx format) and t
 
 The available options are
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
-* --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems in emulation
+* --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems related to emulation, especially when using MC
 
    **I. How can you set PS = 2 to all the new seeds?**
    <details>
@@ -106,7 +106,7 @@ The available options are
    <details>
    <summary>Answer: (Click to expand!)</summary>
 
-   For the beggining of your study we suggest you set the PS of your new seed to 1. This way you can check the initial rate of your seed and then study how you can control it by increasing the PS.
+    For first rate studies, we suggest that you set the PS of your new seed to 1. This way you can check the initial rate of your seed and then study how you can control it by increasing the PS.
    </details>
 
 The PS of the new seeds are:
@@ -130,7 +130,7 @@ Instructions on how to prepare your LS table are [here](https://twiki.cern.ch/tw
 The rate estimation tool will output the rate table in txt and csv format and a root file with the rates of the L1 seeds vs pT and eta. 
 The output files of the full stat run can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/tree/ratesAndPS/tutorials/rate-estimation/results/).
 
-The ```--doPrintPU``` produces an additional file [```testoutput_modified_PS1_PU.csv```](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_PU.csv), that contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
+The ```--doPrintPU``` produces an additional file [```testoutput_modified_PS1_PU.csv```](https://raw.githubusercontent.com/cms-l1-dpg/L1Tutorials/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS1_FullStats_PU.csv), that contains the seed names, PU bins, total events, PS value and number of events fired the trigger in every PU bin. This file will be used for the rate VS PU plotting.
 
    **III. How many events should I run for my studies?**
    <details>
