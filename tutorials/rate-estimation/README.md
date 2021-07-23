@@ -157,7 +157,9 @@ Now let's have a look at the results when running on the full stats Run3 NuGun s
    <details>  
    <summary> Answer: (click to expand)</summary>
 
-   Possible options for controlling very high rates of seeds are the optimizing the cuts of the seeds and/or the increasing the PS
+   Possible options for controlling very high rates of seeds are:
+   * Optimizing the cuts of the seeds 
+   * Increasing the PS
    </details>
 
 
@@ -166,8 +168,8 @@ Now let's have a look at the results when running on the full stats Run3 NuGun s
    <summary> Answer: (Click to expand!) </summary>
 
    We made a new PS table, set the PS=10 for the new seeds which can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/input/PrescaleTable-1_L1Menu_Collisions2022_v0_1_1_modified_PS10.csv) and run the rate estimation tool again for the rull Run3 NuGun Stats.
-   The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10.txt#L512)
-   The rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected)
+   The results are [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/results/testoutput_modified_PS10_FullStats.txt#L512).
+   The rate of the ```L1_DoubleEG_10_5_er1p2``` is decreased by 1/10 (as expected).
 
    ![DoubleEG_PS10](images/DoubleEG_10_5_er1p2_PS10.png)
    </details>
