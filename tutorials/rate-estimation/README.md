@@ -27,10 +27,9 @@ bash configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide you
 ```
 
    <details>
-   <summary>In case the ```bash configure.sh L1Menu_Collisions2022_v0_1_1.xml ``` step fails (Click to expand!)</summary>
+   <summary>In case the last step fails (Click to expand!)</summary>
   
-   It has been reported that in case of not starting from a clean working environment conflicts can arise. This can be solve by commenting out the PYTHON path   line that points to an older version of python in the ./bash_profile or ./bashrc file. An example is given bellow
-   
+   It has been reported that in case of not starting from a clean working environment, conflicts can arise. This can be solve by commenting out the PYTHONPATH   line that points to an older version of python in the ./bash_profile or ./bashrc file. An example is given bellow 
   ![PYTHONPATH](images/fixConfigError.png)
   </details>
 
