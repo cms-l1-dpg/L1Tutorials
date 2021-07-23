@@ -157,7 +157,7 @@ Now let's have a look at the results when running on the full stats Run3 NuGun s
 
    **V. How much is the effective contribution of every seed to the total rate?**
    <details>
-   <summary> Answer: (click to exand) </summary>
+   <summary> Answer: (Click to exand!) </summary>
 
    * The ```L1_DoubleMu_15upt_7upt_MassUpt_Min1_BMTF``` has a pure rate = 0. 
    * The ```L1_DoubleEG_10_5_er1p2``` has pure rate = 230908 Hz.
@@ -166,7 +166,7 @@ Now let's have a look at the results when running on the full stats Run3 NuGun s
 
    **VI. How can we control the rate of the ```L1_DoubleEG_10_5_er1p2``` seed?**
    <details>  
-   <summary> Answer: (click to expand)</summary>
+   <summary> Answer: (Click to expand!)</summary>
 
    Possible options for controlling very high rates of seeds are:
    * Optimizing the cuts of the seeds 
