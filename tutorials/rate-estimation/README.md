@@ -92,12 +92,12 @@ Firstly, you have to provide an already existing PS table (in xlsx format) and t
 
 The available options are
 * --newSeedPS: specifies the number of PS to use for the new seeds, by default PS of the new seeds is set to 1
-* --includeBptx: PS is set to zero for trigger seeds using Bptx and NoBptx due to problems related to emulation, especially when using MC
+* --includeBptx: allows seeds using Bptx and NoBptx. The default behavior of the script sets the PS of seeds using NotBptx or Bptx to zero. This is due to problems related to emulation. If you wish to include the PS information for these seeds, use the --includeBptx option.
 
    **I. How can you set PS = 2 to all the new seeds?**
    <details>
    <summary>Answer: (Click to expand!)</summary>
-
+,
    Adding the --newSeedPS 2 in the command above.
    </details>
 
