@@ -25,6 +25,16 @@ Get the XML menu file locally and translate it into C++ code
 wget https://raw.githubusercontent.com/cms-l1-dpg/L1MenuRun3/master/development/L1Menu_Collisions2022_v0_1_1/L1Menu_Collisions2022_v0_1_1.xml  # alternatively: place your custom menu XML here
 bash configure.sh L1Menu_Collisions2022_v0_1_1.xml  # alternatively: provide your custom menu XML
 ```
+
+   <details>
+   <summary> In case the ```bash configure.sh L1Menu_Collisions2022_v0_1_1.xml``` step fails (Click to expand!)</summary>
+  
+   It has been reported that in case of not starting from a clean working environment conflicts can arise. This can be solve by commenting out the PYTHON path line that points to an older version of python in the ./bash_profile or ./bashrc file. An example is given bellow
+   
+  ![PYTHONPATH](images/fixConfigError.png)
+  </details>
+
+
 This step produces a ```menulib.hh``` and a ```menulib.cc``` files
 
 Note: The command above brings and translates the baseline Run3 menu. For the purpose of this exercise we will get the modified menu and translate it to C++ code in a few steps
@@ -221,7 +231,9 @@ bash run-visualize.sh --rateTable ../rate-estimation/results/testoutput_modified
 The rate bar chart with the full stats looks like ![this](Rate_Visual/rate_visual_percentage%2Brates%2Btotalrate_barPlot.png)
 
 
-The pie chart looks like ![this](Rate_Visual/rate_visual_pieChart.png)
+The pie chart looks like 
+
+![this](Rate_Visual/rate_visual_pieChart.png)
 
 
 and both of them can be found [here](https://github.com/cms-l1-dpg/L1Tutorials/blob/ratesAndPS/tutorials/rate-estimation/Rate_Visual/)
