@@ -21,7 +21,7 @@ The following describes the TME setup steps as of July 2021. Please refer to the
 [TME website](https://globaltrigger.web.cern.ch/globaltrigger/upgrade/tme) for the latest setup instructions.
 
 > The setup instructions assume a bare CC7 Lxplus environment. The TME can be
-> installed locally on some systems (e.g., Ubuntu), which is more convenient
+> installed locally on some systems (e.g., Ubuntu, MacOS 10.13+), which is more convenient
 > in many cases.
 
 Log in to Lxplus with your username and enable X11 forwarding (with the option `-X`).
