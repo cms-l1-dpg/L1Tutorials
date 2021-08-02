@@ -74,7 +74,7 @@ This creates a list of the paths of all the L1 ntuples
 For example, if we want to recreate the Run3 NuGun ntuple list the steps are:
 ```
 cd ./ntuple
-./makeFileList.py /eos/cms/store/group/dpg_trigger/comm_trigger/L1Trigger/stempl/condor/menu_Nu_11_0_X_1614189426/ > testNuGun.list
+./makeFileList.py /eos/cms/store/group/dpg_trigger/comm_trigger/L1Trigger/bundocka/condor/reHcalTP_Nu_11_2_105p20p1_1623921599 > Run3_NuGun_MC_ntuples.list
 ```
 
 
